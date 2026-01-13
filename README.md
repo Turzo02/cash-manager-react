@@ -1,16 +1,76 @@
-# React + Vite
+# Cash Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Cash Manager is a simple, client-side web application for managing personal finances.  
+It helps you track income and expenses across multiple books while keeping all your data stored locally in your browser.
 
-Currently, two official plugins are available:
+There is no backend, no account system, and no data leaving your device.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Why This Project Exists
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Most finance apps are either too complex or require signups and cloud storage.  
+Cash Manager is built to be:
 
-## Expanding the ESLint configuration
+- Simple
+- Private
+- Fast
+- Mobile-first
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+It focuses only on what matters: knowing where your money goes.
+
+---
+
+## Core Features
+
+### Dashboard
+- Shows the current balance
+- Displays total income and total expenses
+- Lists recent transactions for the active book
+
+### Transaction Management
+- Add income or expense transactions
+- Edit existing transactions
+- Delete transactions with confirmation
+- Each transaction includes amount, description, date, and time
+
+### Multiple Books
+- Create separate books for different purposes
+- Switch between books instantly
+- Edit or delete books
+- Deleting a book also removes its transactions
+
+### Theme Mode
+- Light and dark mode support
+- Manual toggle
+- Theme preference is saved locally
+
+### Local Storage
+- All data is stored in browser local storage
+- Data persists across reloads
+- No authentication or server required
+
+---
+
+## Tech Stack
+
+- React
+- Tailwind CSS
+- Local Storage API
+
+---
+
+## Project Philosophy
+
+- Mobile-first design
+- Component-based architecture
+- No unnecessary dependencies
+- Easy to extend in the future
+
+---
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
