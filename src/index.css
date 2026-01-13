@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+
+/* Define your Custom Theme Variables here inside @theme */
+@theme {
+  /* Using --color-* maps them directly to class names like bg-primary, text-primary */
+  --color-primary: rgb(var(--primary));
+  --color-background: rgb(var(--background));
+  --color-surface: rgb(var(--surface));
+  --color-text: rgb(var(--text));
+  
+  /* You can also add custom animations here if needed */
+}
+
+/* Now define the values for those variables */
+:root {
+  /* Light Mode (Vibrant Blue/Purple tint) */
+  --primary: 99 102 241; /* Indigo-500 */
+  --background: 240 249 255; /* Sky-50 */
+  --surface: 255 255 255;
+  --text: 15 23 42;
+}
+
+/* Dark mode handling - usually works automatically with "dark" class in v4 */
+:root.dark {
+  /* Dark Mode (Deep Night) */
+  --primary: 129 140 248; /* Indigo-400 */
+  --background: 15 23 42; /* Slate-900 */
+  --surface: 30 41 59;
+  --text: 241 245 249;
+}
+
+/* Global Styles */
+body {
+  @apply bg-background text-text transition-colors duration-300 antialiased;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(var(--primary), 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(var(--primary), 0.1) 0%, transparent 40%);
+  background-attachment: fixed;
+}
