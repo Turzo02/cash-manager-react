@@ -1,11 +1,11 @@
 import { Sun, Moon } from 'lucide-react';
-import React, { use } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
+import React, { } from 'react';
+import { useTheme } from '../../context/useTheme';
 
 
 
 export default function Layout({ children, title, action }) {
-  const { theme, toggleTheme } = use(ThemeContext);
+    const [theme, toggleTheme] = useTheme();
 
   return (
     <div className="min-h-screen max-w-6xl mx-auto pb-24">

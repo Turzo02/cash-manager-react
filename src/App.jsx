@@ -1,7 +1,6 @@
 import React from "react";
 
 import { useState } from "react";
-import { ThemeProvider } from "./context/ThemeProvider";
 import { DataProvider } from "./context/DataProvider";
 import Layout from "./components/layout/Layout";
 import BottomNav from "./components/layout/BottomNav";
@@ -12,6 +11,7 @@ function AppContent() {
   const [currentTab, setCurrentTab] = useState("dashboard");
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
+
   return (
     <Layout  title={currentTab === "dashboard" ? "Overview" : "My Books"}>
       {currentTab === "dashboard" && (
@@ -20,7 +20,6 @@ function AppContent() {
           closeAddModal={() => setIsAddModalOpen(false)}
         />
       )}
-
       {currentTab === "books" && <Books />}
 
       <BottomNav
@@ -37,10 +36,8 @@ function AppContent() {
 
 export default function App() {
   return (
-    <ThemeProvider>
       <DataProvider>
         <AppContent />
       </DataProvider>
-    </ThemeProvider>
   );
 }

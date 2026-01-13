@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 /* Define your Custom Theme Variables here inside @theme */
 @theme {
   /* Using --color-* maps them directly to class names like bg-primary, text-primary */
