@@ -22,7 +22,7 @@ export default function Books() {
     <div className="space-y-6">
       <Card className="p-4">
         <h3 className="font-bold mb-3">Create New Book</h3>
-        <form onSubmit={handleAdd} className="flex gap-2">
+        <form onSubmit={handleAdd} className="flex gap-2 ">
           <div className="flex-1">
             <Input
               placeholder="e.g. Travel Fund"

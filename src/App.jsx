@@ -7,13 +7,14 @@ import BottomNav from "./components/layout/BottomNav";
 import Dashboard from "./Pages/Dashboard";
 import Books from "./Pages/Books";
 
+
 function AppContent() {
   const [currentTab, setCurrentTab] = useState("dashboard");
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
 
   return (
-    <Layout  title={currentTab === "dashboard" ? "Overview" : "My Books"}>
+    <Layout  title={currentTab === "dashboard" ? "Home" : "My Books"}>
       {currentTab === "dashboard" && (
         <Dashboard
           isAddModalOpen={isAddModalOpen}
