@@ -2,24 +2,23 @@ import { Home, Book, PlusCircle } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import React from 'react';
 
-export default function BottomNav({ activeTab, onTabChange, onAdd }) {
+const NavItem = ({ id, icon: Icon, label, activeTab, onTabChange }) => (
+  <button
+    onClick={() => onTabChange(id)}
+    className={cn(
+      "flex flex-col items-center gap-1 p-2 transition-colors",
+      activeTab === id ? "text-primary" : "text-text/40 hover:text-text/70"
+    )}
+  >
+    <Icon size={24} />
+    <span className="text-[10px] font-medium">{label}</span>
+  </button>
+);
 
-  const NavItem = ({ id, icon: Icon, label }) => (
-    <button
-      onClick={() => onTabChange(id)}
-      className={cn(
-        "flex flex-col items-center gap-1 p-2 transition-colors",
-        activeTab === id ? "text-primary" : "text-text/40 hover:text-text/70"
-      )}
-    >
-      <Icon size={24} />
-      <span className="text-[10px] font-medium">{label}</span>
-    </button>
-  );
-  
+export default function BottomNav({ activeTab, onTabChange, onAdd }) {
   return (
-    <div className="fixed max-w-6xl mx-auto bottom-0 left-0 right-0 bg-surface/80  backdrop-blur-xl border-t border-white/10 pb-safe pt-2 px-6 flex justify-between items-center z-40 h-20">
-      <NavItem id="dashboard" icon={Home} label="Home" />
+    <div className="fixed max-w-6xl mx-auto bottom-0 left-0 right-0 bg-surface/80 backdrop-blur-xl border-t border-white/10 pb-safe pt-2 px-6 flex justify-between items-center z-40 h-20">
+      <NavItem id="dashboard" icon={Home} label="Home" activeTab={activeTab} onTabChange={onTabChange} />
       
       {/* Floating Add Button in Center */}
       <button 
@@ -29,7 +28,8 @@ export default function BottomNav({ activeTab, onTabChange, onAdd }) {
         <PlusCircle size={28} />
       </button>
 
-      <NavItem id="books" icon={Book} label="Books" />
+      <NavItem id="books" icon={Book} label="Books" activeTab={activeTab} onTabChange={onTabChange} />
     </div>
   );
 }
+
