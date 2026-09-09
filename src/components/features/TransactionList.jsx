@@ -31,7 +31,7 @@ export default function TransactionList({ transactions, onEdit, onDelete }) {
               {t.type === 'income' ? '+' : '-'}${parseFloat(t.amount).toFixed(2)}
             </span>
             
-            <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="flex gap-2 opacity-100 transition-opacity">
               <button onClick={() => onEdit(t)} className="p-1 hover:text-primary">
                 <Edit2 size={14} />
               </button>

@@ -2,6 +2,7 @@
 
 /* Define your Custom Theme Variables here inside @theme */
 @theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   /* Using --color-* maps them directly to class names like bg-primary, text-primary */
   --color-primary: rgb(var(--primary));
   --color-background: rgb(var(--background));
@@ -32,6 +33,7 @@
 /* Global Styles */
 body {
   @apply bg-background text-text transition-colors duration-300 antialiased;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(var(--primary), 0.15) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(var(--primary), 0.1) 0%, transparent 40%);
