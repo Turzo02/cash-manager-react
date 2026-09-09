@@ -20,8 +20,8 @@ export default function Books() {
 
   return (
     <div className="space-y-6">
-      <Card className="p-4">
-        <h3 className="font-bold mb-3">Create New Book</h3>
+      <Card className="p-5">
+        <h3 className="font-bold text-lg mb-4">Create New Book</h3>
         <form onSubmit={handleAdd} className="flex gap-2 ">
           <div className="flex-1">
             <Input
@@ -40,19 +40,19 @@ export default function Books() {
             key={book.id}
             onClick={() => setActiveBookId(book.id)}
             className={`
-              relative p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-4
+              relative p-4 rounded-3xl border transition-all cursor-pointer flex items-center gap-4 hover:scale-[1.01] hover:shadow-xl hover:shadow-black/30
               ${
                 book.id === activeBookId
                   ? "bg-primary/10 border-primary shadow-lg shadow-primary/10"
-                  : "bg-surface/40 hover:bg-surface/60 border-white/10"
+                  : "bg-surface/70 hover:bg-surface-raised border-white/5"
               }
             `}
           >
             <div
               className={`p-3 rounded-full ${
                 book.id === activeBookId
-                  ? "bg-primary text-white"
-                  : "bg-surface text-text"
+                  ? "bg-linear-to-br from-primary to-accent text-white shadow-lg shadow-primary/30"
+                  : "bg-surface-raised text-muted"
               }`}
             >
               <Wallet size={20} />
@@ -66,7 +66,7 @@ export default function Books() {
               >
                 {book.name}
               </h4>
-              <p className="text-xs opacity-50">
+              <p className="text-xs text-muted">
                 {book.id === activeBookId ? "Active Wallet" : "Click to switch"}
               </p>
             </div>
@@ -80,7 +80,7 @@ export default function Books() {
                 e.stopPropagation();
                 deleteBook(book.id);
               }}
-              className="p-2 text-text/30 hover:text-red-500 transition-colors z-10"
+              className="p-2 text-muted/60 hover:text-red-300 hover:bg-red-500/10 rounded-xl transition-colors z-10"
             >
               <Trash2 size={18} />
             </button>

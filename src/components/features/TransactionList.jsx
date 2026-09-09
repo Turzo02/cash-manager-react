@@ -15,28 +15,28 @@ export default function TransactionList({ transactions, onEdit, onDelete }) {
   return (
     <div className="flex flex-col gap-3">
       {transactions.map((t) => (
-        <Card key={t.id} className="p-4 flex items-center justify-between group">
+        <Card key={t.id} className="p-4 flex items-center justify-between group hover:scale-[1.01] hover:border-primary/30 hover:shadow-primary/10">
           <div className="flex items-center gap-4">
-            <div className={`p-3 rounded-full ${t.type === 'income' ? 'bg-green-500/20 text-green-500' : 'bg-red-500/20 text-red-500'}`}>
+            <div className={`p-3 rounded-2xl ${t.type === 'income' ? 'bg-emerald-500/15 text-emerald-300' : 'bg-red-500/15 text-red-300'}`}>
               {t.type === 'income' ? <TrendingUp size={20} /> : <TrendingDown size={20} />}
             </div>
             <div>
               <h3 className="font-semibold">{t.description}</h3>
-              <p className="text-xs opacity-50">{format(new Date(t.date), 'MMM dd, yyyy')}</p>
+              <p className="text-xs text-muted">{format(new Date(t.date), 'MMM dd, yyyy')}</p>
             </div>
           </div>
           
           <div className="flex flex-col items-end gap-1">
-            <span className={`font-bold ${t.type === 'income' ? 'text-green-500' : 'text-text'}`}>
+            <span className={`font-bold ${t.type === 'income' ? 'text-emerald-300' : 'text-text'}`}>
               {t.type === 'income' ? '+' : '-'}${parseFloat(t.amount).toFixed(2)}
             </span>
             
-            <div className="flex gap-2 opacity-100 transition-opacity">
-              <button onClick={() => onEdit(t)} className="p-1 hover:text-primary">
-                <Edit2 size={14} />
+            <div className="flex gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+              <button onClick={() => onEdit(t)} className="p-2 rounded-xl hover:bg-primary/15 hover:text-primary transition-colors" aria-label={`Edit ${t.description}`} title="Edit transaction">
+                <Edit2 size={14} strokeWidth={2.25} />
               </button>
-              <button onClick={() => onDelete(t.id)} className="p-1 hover:text-red-500">
-                <Trash2 size={14} />
+              <button onClick={() => onDelete(t.id)} className="p-2 rounded-xl hover:bg-red-500/15 hover:text-red-300 transition-colors" aria-label={`Delete ${t.description}`} title="Delete transaction">
+                <Trash2 size={14} strokeWidth={2.25} />
               </button>
             </div>
           </div>

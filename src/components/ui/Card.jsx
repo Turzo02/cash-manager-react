@@ -4,7 +4,7 @@ import React from 'react';
 export default function Card({ children, className }) {
   return (
     <div className={cn(
-      "bg-surface/70 dark:bg-surface/40 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-lg rounded-2xl p-5 transition-all duration-300",
+      "bg-surface/75 backdrop-blur-xl border border-white/5 shadow-xl shadow-black/35 rounded-3xl p-5 transition-all duration-300",
       className
     )}>
       {children}

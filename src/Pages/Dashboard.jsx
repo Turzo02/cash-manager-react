@@ -20,19 +20,20 @@ export default function Dashboard({ isAddModalOpen, closeAddModal }) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Balance Card */}
-      <Card className="bg-linear-to-br from-primary/80 to-purple-600/80 text-white border-none">
-        <p className="opacity-80 text-sm mb-1">{activeBook?.name}</p>
-        <h2 className="text-4xl font-bold mb-6">${balance.toFixed(2)}</h2>
-        <div className="flex gap-4">
-          <div className="flex-1 bg-black/20 rounded-lg p-3 backdrop-blur-sm">
-            <p className="text-xs opacity-70 mb-1">Income</p>
-            <p className="font-semibold text-green-300">+${totalIncome.toFixed(2)}</p>
+      <Card className="relative overflow-hidden bg-linear-to-br from-primary/20 via-surface to-accent/10 border-white/10">
+        <div className="absolute -right-16 -top-20 h-48 w-48 rounded-full bg-primary/20 blur-3xl" />
+        <p className="relative text-muted text-sm mb-2">{activeBook?.name}</p>
+        <h2 className="relative text-4xl sm:text-5xl font-extrabold tracking-tight mb-8 bg-clip-text text-transparent bg-linear-to-r from-text via-primary to-accent">${balance.toFixed(2)}</h2>
+        <div className="relative grid grid-cols-2 gap-3">
+          <div className="bg-surface-raised/65 rounded-2xl p-4 backdrop-blur-sm border border-white/5">
+            <p className="text-xs text-muted mb-1">Income</p>
+            <p className="font-bold text-emerald-300">+${totalIncome.toFixed(2)}</p>
           </div>
-          <div className="flex-1 bg-black/20 rounded-lg p-3 backdrop-blur-sm">
-            <p className="text-xs opacity-70 mb-1">Expenses</p>
-            <p className="font-semibold text-red-300">-${totalExpense.toFixed(2)}</p>
+          <div className="bg-surface-raised/65 rounded-2xl p-4 backdrop-blur-sm border border-white/5">
+            <p className="text-xs text-muted mb-1">Expenses</p>
+            <p className="font-bold text-red-300">-${totalExpense.toFixed(2)}</p>
           </div>
         </div>
       </Card>

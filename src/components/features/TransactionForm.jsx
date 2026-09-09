@@ -19,7 +19,7 @@ export default function TransactionForm({ onSubmit, initialData = {}, onCancel }
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div className="flex bg-surface/50 p-1 rounded-xl border border-white/10">
+      <div className="flex bg-surface-raised/70 p-1 rounded-2xl border border-white/5">
         {['expense', 'income'].map((t) => (
           <button
             key={t}
@@ -27,7 +27,7 @@ export default function TransactionForm({ onSubmit, initialData = {}, onCancel }
             onClick={() => setFormData({ ...formData, type: t })}
             className={`flex-1 py-2 rounded-lg text-sm font-medium capitalize transition-all ${
               formData.type === t 
-                ? (t === 'income' ? 'bg-green-500 text-white shadow-md' : 'bg-red-500 text-white shadow-md')
+                ? (t === 'income' ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20' : 'bg-red-500 text-white shadow-lg shadow-red-500/20')
                 : 'opacity-60 hover:opacity-100'
             }`}
           >
