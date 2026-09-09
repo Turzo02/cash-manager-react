@@ -17,7 +17,7 @@ const NavItem = ({ id, icon: Icon, label, activeTab, onTabChange }) => (
 
 export default function BottomNav({ activeTab, onTabChange, onAdd }) {
 	return (
-		<div className=" fixed max-w-6xl mx-auto bottom-0 left-0 right-0 bg-linear-to-tl from-primary/30 via-surface to-accent/20  border-t border-white/5 pb-safe pt-2 px-6 flex justify-between items-center z-40 rounded-t-2xl py-2">
+		<div className="fixed max-w-6xl mx-auto bottom-0 left-0 right-0 bg-surface/95 border-t border-white/5 pb-safe pt-2 px-6 flex justify-between items-center z-40 rounded-t-2xl py-2">
 			<NavItem
 				id="dashboard"
 				icon={Birdhouse}
@@ -28,7 +28,7 @@ export default function BottomNav({ activeTab, onTabChange, onAdd }) {
 
 			<button
 				onClick={onAdd}
-				className="bg-linear-to-br from-primary to-accent text-white p-4 rounded-xl shadow-xl shadow-primary/40 hover:shadow-primary/50 hover:scale-[1.02] transition-all"
+				className="bg-linear-to-br from-primary to-accent text-white p-4 rounded-xl shadow-lg shadow-primary/30"
 			>
 				<PlusCircle size={28} />
 			</button>

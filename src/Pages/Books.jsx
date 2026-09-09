@@ -3,12 +3,14 @@ import { DataContext } from "../context/DataContext";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
+import Modal from "../components/ui/Modal";
 import { Wallet, Trash2, CheckCircle2 } from "lucide-react";
 
 export default function Books() {
   const { books, activeBookId, setActiveBookId, addBook, deleteBook } =
     useContext(DataContext);
   const [newBookName, setNewBookName] = useState("");
+  const [deleteTarget, setDeleteTarget] = useState(null);
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -78,7 +80,7 @@ export default function Books() {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                deleteBook(book.id);
+                setDeleteTarget(book);
               }}
               className="p-2 text-muted/60 hover:text-red-300 hover:bg-red-500/10 rounded-xl transition-colors z-10"
             >
@@ -87,6 +89,36 @@ export default function Books() {
           </div>
         ))}
       </div>
+
+      <Modal
+        isOpen={!!deleteTarget}
+        onClose={() => setDeleteTarget(null)}
+        title="Delete Book?"
+      >
+        <p className="text-muted mb-6">
+          Delete “{deleteTarget?.name}” and all its transactions?
+        </p>
+        <div className="flex gap-3">
+          <button
+            type="button"
+            onClick={() => setDeleteTarget(null)}
+            className="flex-1 px-4 py-3 rounded-2xl font-medium bg-surface-raised/70 border border-white/5 text-muted hover:text-white hover:bg-surface-raised"
+          >
+            No
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              deleteBook(deleteTarget.id);
+              setDeleteTarget(null);
+            }}
+            disabled={books.length <= 1}
+            className="flex-1 px-4 py-3 rounded-2xl font-medium bg-red-500/90 text-white hover:bg-red-500 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Yes, delete
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 }

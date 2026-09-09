@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Define your Custom Theme Variables here inside @theme */
 @theme {
   --font-sans: "Plus Jakarta Sans", "Manrope", ui-sans-serif, system-ui, sans-serif;
@@ -32,6 +43,21 @@ body {
   background-image:
     linear-gradient(135deg, #070a12 0%, #0b1020 48%, #070a12 100%);
   background-attachment: fixed;
+}
+
+.transaction-row {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 88px;
+}
+
+@media (max-width: 767px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  body::before {
+    display: none;
+  }
 }
 
 body::before {

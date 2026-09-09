@@ -14,7 +14,7 @@ function AppContent() {
 
 
   return (
-    <Layout  title={currentTab === "dashboard" ? "Home" : "My Books"}>
+    <Layout  title={currentTab === "dashboard" ? "Jome" : "My Books"}>
       {currentTab === "dashboard" && (
         <Dashboard
           isAddModalOpen={isAddModalOpen}
@@ -37,8 +37,8 @@ function AppContent() {
 
 export default function App() {
   return (
-      <DataProvider>
-        <AppContent />
-      </DataProvider>
+    <DataProvider>
+      <AppContent />
+    </DataProvider>
   );
 }

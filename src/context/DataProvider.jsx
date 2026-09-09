@@ -51,7 +51,6 @@ export function DataProvider({ children }) {
   };
 
   const deleteTransaction = (id) => {
-    alert("Delete this transaction?");
     setTransactions(prev => prev.filter(t => t.id !== id));
   };
 
@@ -66,12 +65,9 @@ export function DataProvider({ children }) {
   };
 
   const deleteBook = (id) => {
-    if (books.length <= 1) return alert("Cannot delete the last book.");
-    if (confirm("Delete this book and all its transactions?")) {
-      setBooks(prev => prev.filter(b => b.id !== id));
-      setTransactions(prev => prev.filter(t => t.bookId !== id));
-      if (activeBookId === id) setActiveBookId(books[0].id);
-    }
+    setBooks(prev => prev.filter(b => b.id !== id));
+    setTransactions(prev => prev.filter(t => t.bookId !== id));
+    if (activeBookId === id) setActiveBookId(books[0].id);
   };
 
   return (
