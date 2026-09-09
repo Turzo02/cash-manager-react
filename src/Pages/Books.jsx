@@ -6,7 +6,7 @@ import Input from "../components/ui/Input";
 import Modal from "../components/ui/Modal";
 import { Wallet, Trash2, CheckCircle2 } from "lucide-react";
 
-export default function Books() {
+export default function Books({ onNotify }) {
   const { books, activeBookId, setActiveBookId, addBook, deleteBook } =
     useContext(DataContext);
   const [newBookName, setNewBookName] = useState("");
@@ -16,6 +16,7 @@ export default function Books() {
     e.preventDefault();
     if (newBookName.trim()) {
       addBook(newBookName);
+      onNotify?.("Book created successfully");
       setNewBookName("");
     }
   };
@@ -40,7 +41,10 @@ export default function Books() {
         {books.map((book) => (
           <div
             key={book.id}
-            onClick={() => setActiveBookId(book.id)}
+            onClick={() => {
+              setActiveBookId(book.id);
+              onNotify?.(`${book.name} selected`);
+            }}
             className={`
               relative p-4 rounded-3xl border transition-all cursor-pointer flex items-center gap-4 hover:scale-[1.01] hover:shadow-xl hover:shadow-black/30
               ${
@@ -110,6 +114,7 @@ export default function Books() {
             type="button"
             onClick={() => {
               deleteBook(deleteTarget.id);
+              onNotify?.("Book deleted");
               setDeleteTarget(null);
             }}
             disabled={books.length <= 1}

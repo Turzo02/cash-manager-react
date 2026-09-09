@@ -5,7 +5,7 @@ import Modal from '../components/ui/Modal';
 import TransactionForm from '../components/features/TransactionForm';
 import { DataContext } from '../context/DataContext';
 
-export default function Dashboard({ isAddModalOpen, closeAddModal }) {
+export default function Dashboard({ isAddModalOpen, closeAddModal, onNotify }) {
   const { activeBook, balance, totalIncome, totalExpense, currentTransactions, addTransaction, updateTransaction, deleteTransaction } = useContext(DataContext)
   const [editingTx, setEditingTx] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
@@ -16,6 +16,7 @@ export default function Dashboard({ isAddModalOpen, closeAddModal }) {
       setEditingTx(null);
     } else {
       addTransaction(data);
+      onNotify?.("Transaction added successfully");
       closeAddModal();
     }
   };
@@ -69,6 +70,7 @@ export default function Dashboard({ isAddModalOpen, closeAddModal }) {
             type="button"
             onClick={() => {
               deleteTransaction(deleteTarget.id);
+              onNotify?.("Transaction deleted");
               setDeleteTarget(null);
             }}
             className="flex-1 px-4 py-3 rounded-2xl font-medium bg-red-500/90 text-white hover:bg-red-500"
